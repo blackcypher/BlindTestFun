@@ -33,8 +33,8 @@ import org.json.JSONObject;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-public class MainActivity extends AppCompatActivity implements
-        View.OnClickListener {
+public class MainActivity extends AppCompatActivity /*implements
+        View.OnClickListener*/ {
 
     private LoginButton fcbButton;
     private Button mPartieRapide;
@@ -60,10 +60,10 @@ public class MainActivity extends AppCompatActivity implements
         users = new Users();
 
         mPartieRapide = (Button) findViewById(R.id.actionRapide);
-        mPartieRapide.setOnClickListener(this);
+        //mPartieRapide.setOnClickListener(this);
 
         mSeConnecter = (Button) findViewById(R.id.email_sign_in_button);
-        mSeConnecter.setOnClickListener(this);
+        //mSeConnecter.setOnClickListener(this);
 
         callbackManager = CallbackManager.Factory.create();
         fcbButton = (LoginButton) findViewById(R.id.login_button);
@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity implements
                                     // handle error
                                 } else {
                                     String user_email =response.getJSONObject().optString("email");
-
                                     users.setEmail(user_email);
                                     new HttpRequestTask().execute();
                                 }
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity implements
             }
         });
 
-        SignInButton signInButton = findViewById(R.id.sign_in_button);
+        /*SignInButton signInButton = findViewById(R.id.sign_in_button);
         signInButton.setOnClickListener(this);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -116,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         signInButton.setSize(SignInButton.SIZE_STANDARD);
-        signInButton.setColorScheme(SignInButton.COLOR_LIGHT);
+        signInButton.setColorScheme(SignInButton.COLOR_LIGHT);*/
     }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
@@ -170,6 +169,9 @@ public class MainActivity extends AppCompatActivity implements
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
                 //Users users = restTemplate.getForObject(url, Users.class);
+                /*Toast toast = Toast.makeText(getApplicationContext(), "emailF = "+ users.getEmail(), Toast.LENGTH_SHORT);
+                toast.show();*/
+
                 Users usersResult = restTemplate.postForObject(url, users, Users.class);
                 return usersResult;
             } catch (Exception e) {
@@ -189,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements
 
     }
 
-    @Override
+    /*@Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sign_in_button:
@@ -201,8 +203,6 @@ public class MainActivity extends AppCompatActivity implements
                 startActivity(i);
                 break;
             case R.id.email_sign_in_button:
-                /*Intent in = new Intent(MainActivity.this, HomeActivity.class);
-                startActivity(in);*/
                 tEmail = (EditText) findViewById(R.id.emailEdit);
                 if(tEmail!=null){
                     users.setEmail(tEmail.getText().toString());
@@ -210,5 +210,5 @@ public class MainActivity extends AppCompatActivity implements
                 }
                 break;
         }
-    }
+    }*/
 }
