@@ -33,8 +33,8 @@ import org.json.JSONObject;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-public class MainActivity extends AppCompatActivity /*implements
-        View.OnClickListener*/ {
+public class MainActivity extends AppCompatActivity implements
+        View.OnClickListener {
 
     private LoginButton fcbButton;
     private Button mPartieRapide;
@@ -60,10 +60,10 @@ public class MainActivity extends AppCompatActivity /*implements
         users = new Users();
 
         mPartieRapide = (Button) findViewById(R.id.actionRapide);
-        //mPartieRapide.setOnClickListener(this);
+        mPartieRapide.setOnClickListener(this);
 
         mSeConnecter = (Button) findViewById(R.id.email_sign_in_button);
-        //mSeConnecter.setOnClickListener(this);
+        mSeConnecter.setOnClickListener(this);
 
         callbackManager = CallbackManager.Factory.create();
         fcbButton = (LoginButton) findViewById(R.id.login_button);
@@ -105,17 +105,14 @@ public class MainActivity extends AppCompatActivity /*implements
             }
         });
 
-        /*SignInButton signInButton = findViewById(R.id.sign_in_button);
+        SignInButton signInButton = findViewById(R.id.sign_in_button);
         signInButton.setOnClickListener(this);
-
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
-
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
         signInButton.setSize(SignInButton.SIZE_STANDARD);
-        signInButton.setColorScheme(SignInButton.COLOR_LIGHT);*/
+        signInButton.setColorScheme(SignInButton.COLOR_LIGHT);
     }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
@@ -168,9 +165,6 @@ public class MainActivity extends AppCompatActivity /*implements
                 final String url = "http://89.86.60.41/api/v1/users";
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                //Users users = restTemplate.getForObject(url, Users.class);
-                /*Toast toast = Toast.makeText(getApplicationContext(), "emailF = "+ users.getEmail(), Toast.LENGTH_SHORT);
-                toast.show();*/
 
                 Users usersResult = restTemplate.postForObject(url, users, Users.class);
                 return usersResult;
@@ -183,15 +177,13 @@ public class MainActivity extends AppCompatActivity /*implements
 
         @Override
         protected void onPostExecute(Users users) {
-            /*TextView greetingIdText = (TextView) findViewById(R.id.id_value);
-            TextView greetingContentText = (TextView) findViewById(R.id.content_value);
-            greetingIdText.setText(users.getId());
-            greetingContentText.setText(users.getEmailAddress());*/
+            Intent i = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(i);
         }
 
     }
 
-    /*@Override
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sign_in_button:
@@ -210,5 +202,5 @@ public class MainActivity extends AppCompatActivity /*implements
                 }
                 break;
         }
-    }*/
+    }
 }
