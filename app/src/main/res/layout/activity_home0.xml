@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blackground"
+    android:gravity="top"
+    tools:context="com.jupiter.ulric.blindtestfun.HomeActivity0">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white"></android.support.v7.widget.Toolbar>
+
+    <!--<include layout="@layout/content_home0" />-->
+
+    <Button
+        android:id="@+id/actionRandom"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="74dp"
+        android:background="@drawable/button_round"
+        android:text="partie aleatoire"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/action2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/actionRandom"
+        android:layout_alignStart="@+id/actionRandom"
+        android:layout_below="@+id/actionRandom"
+        android:layout_gravity="center"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/button_round"
+        android:text="partie aleatoire"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/action3"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/action2"
+        android:layout_alignStart="@+id/action2"
+        android:layout_below="@+id/action2"
+        android:layout_gravity="center"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/button_round"
+        android:text="partie aleatoire"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>

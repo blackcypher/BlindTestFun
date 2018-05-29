@@ -9,7 +9,6 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.CallbackManager;
@@ -120,13 +119,9 @@ public class MainActivity extends AppCompatActivity implements
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
             if (account != null) {
-                String personName = account.getDisplayName();
+                //String personName = account.getDisplayName();
                 String personEmail = account.getEmail();
-                String result = "email = "+personEmail+", "+personName;
-
                 users.setEmail(personEmail);
-                Toast toast = Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT);
-                toast.show();
             }
         } catch (ApiException e) {
             Toast toast = Toast.makeText(getApplicationContext(), "Connexion failed", Toast.LENGTH_SHORT);
@@ -146,30 +141,29 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-    }
-
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+        new HttpRequestTask().execute();
     }
 
     private class HttpRequestTask extends AsyncTask<Void, Void, Users> {
         @Override
         protected Users doInBackground(Void... params) {
             try {
-                //final String url = "http://rest-service.guides.spring.io/greeting";
                 final String url = "http://89.86.60.41/api/v1/users";
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
                 Users usersResult = restTemplate.postForObject(url, users, Users.class);
+                if(usersResult.getEmail()!=null){
+                    Intent i = new Intent(MainActivity.this, HomeActivity0.class);
+                    startActivity(i);
+                }
+
                 return usersResult;
             } catch (Exception e) {
-                Log.e("HomeActivity", e.getMessage(), e);
+                Log.e("HomeActivity0", e.getMessage(), e);
             }
 
             return null;
@@ -177,8 +171,6 @@ public class MainActivity extends AppCompatActivity implements
 
         @Override
         protected void onPostExecute(Users users) {
-            Intent i = new Intent(MainActivity.this, HomeActivity.class);
-            startActivity(i);
         }
 
     }
@@ -188,10 +180,9 @@ public class MainActivity extends AppCompatActivity implements
         switch (v.getId()) {
             case R.id.sign_in_button:
                 signIn();
-                new HttpRequestTask().execute();
                 break;
             case R.id.actionRapide:
-                Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                Intent i = new Intent(MainActivity.this, HomeActivity0.class);
                 startActivity(i);
                 break;
             case R.id.email_sign_in_button:
