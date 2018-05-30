@@ -21,40 +21,81 @@
     <Button
         android:id="@+id/actionRandom"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="80dp"
         android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="74dp"
-        android:background="@drawable/button_round"
+        android:drawableLeft="@drawable/ic_play"
+        android:background="@drawable/button_square"
+        android:textColor="#f7f9fc"
         android:text="partie aleatoire"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/action2"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="80dp"
         android:layout_alignLeft="@+id/actionRandom"
         android:layout_alignStart="@+id/actionRandom"
         android:layout_below="@+id/actionRandom"
         android:layout_gravity="center"
-        android:layout_marginTop="14dp"
-        android:background="@drawable/button_round"
-        android:text="partie aleatoire"
+        android:layout_marginTop="5dp"
+        android:textColor="#f7f9fc"
+        android:background="@drawable/button_square_theme"
+        android:drawableLeft="@drawable/ic_music"
+        android:text="choisir un thème"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/partieEnCour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/action2"
+        android:layout_marginTop="10dp"
+        android:hint="Parties en cours"
+        android:textColorHint="#2062b3"
+        android:textSize="24sp"
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/action3"
+        android:id="@+id/joueur1"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignLeft="@+id/action2"
-        android:layout_alignStart="@+id/action2"
-        android:layout_below="@+id/action2"
-        android:layout_gravity="center"
-        android:layout_marginTop="14dp"
-        android:background="@drawable/button_round"
-        android:text="partie aleatoire"
+        android:layout_below="@+id/partieEnCour"
+        android:layout_height="32dp"
+        android:layout_marginTop="2dp"
+        android:text="jour 1"
+        android:background="@drawable/button_round2"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/joueur2"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/joueur1"
+        android:layout_height="32dp"
+        android:layout_marginTop="2dp"
+        android:text="jour 2"
+        android:background="@drawable/button_round2"
         android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/partieTermine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/joueur2"
+        android:layout_marginTop="10dp"
+        android:hint="Parties terminées"
+        android:textColorHint="#2062b3"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/joueur3"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/partieTermine"
+        android:layout_height="32dp"
+        android:layout_marginTop="2dp"
+        android:text="jour 3"
+        android:background="@drawable/button_round2"
+        android:textStyle="bold" />
 
 </RelativeLayout>
