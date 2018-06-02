@@ -32,6 +32,7 @@ public class HomeActivity0 extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         spinner = (ProgressBar)findViewById(R.id.progressBar1);
         spinner.setVisibility(View.GONE);

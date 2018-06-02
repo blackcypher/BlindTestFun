@@ -3,12 +3,14 @@ package com.jupiter.ulric.blindtestfun;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.facebook.CallbackManager;
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements
 
     private GoogleSignInClient mGoogleSignInClient;
 
+    private ProgressBar spinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,9 @@ public class MainActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
 
         users = new Users();
+
+        spinner = (ProgressBar)findViewById(R.id.progressBar);
+        spinner.setVisibility(View.GONE);
 
         mPartieRapide = (Button) findViewById(R.id.actionRapide);
         mPartieRapide.setOnClickListener(this);
@@ -182,6 +189,7 @@ public class MainActivity extends AppCompatActivity implements
                 signIn();
                 break;
             case R.id.actionRapide:
+                spinner.setVisibility(View.VISIBLE);
                 Intent i = new Intent(MainActivity.this, HomeActivity0.class);
                 startActivity(i);
                 break;
@@ -189,6 +197,7 @@ public class MainActivity extends AppCompatActivity implements
                 tEmail = (EditText) findViewById(R.id.emailEdit);
                 if(tEmail!=null){
                     users.setEmail(tEmail.getText().toString());
+                    spinner.setVisibility(View.VISIBLE);
                     new HttpRequestTask().execute();
                 }
                 break;

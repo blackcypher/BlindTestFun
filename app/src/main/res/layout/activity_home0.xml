@@ -28,6 +28,17 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true" />
 
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/email_login_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="fill_vertical"
+            android:orientation="vertical">
     <Button
         android:id="@+id/actionRandom"
         android:layout_width="match_parent"
@@ -108,4 +119,6 @@
         android:background="@drawable/button_round2"
         android:textStyle="bold" />
 
+        </LinearLayout>
+    </ScrollView>
     </RelativeLayout>
