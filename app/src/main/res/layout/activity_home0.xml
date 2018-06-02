@@ -14,14 +14,24 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        app:titleTextColor="@android:color/white"></android.support.v7.widget.Toolbar>
+        app:titleTextColor="@android:color/white">
+    </android.support.v7.widget.Toolbar>
 
     <!--<include layout="@layout/content_home0" />-->
+
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleLarge"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/actionRandom"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="@dimen/button_home"
         android:layout_below="@+id/toolbar"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
@@ -35,18 +45,18 @@
     <Button
         android:id="@+id/action2"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="@dimen/button_home"
         android:layout_alignLeft="@+id/actionRandom"
         android:layout_alignStart="@+id/actionRandom"
         android:layout_below="@+id/actionRandom"
         android:layout_gravity="center"
         android:layout_marginTop="5dp"
-        android:textColor="#f7f9fc"
         android:background="@drawable/button_square_theme"
+        android:contextClickable="false"
         android:drawableLeft="@drawable/ic_music"
         android:text="choisir un thème"
+        android:textColor="#f7f9fc"
         android:textStyle="bold" />
-
 
     <TextView
         android:id="@+id/partieEnCour"
@@ -63,7 +73,7 @@
         android:id="@+id/joueur1"
         android:layout_width="match_parent"
         android:layout_below="@+id/partieEnCour"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:text="jour 1"
         android:background="@drawable/button_round2"
@@ -72,7 +82,7 @@
         android:id="@+id/joueur2"
         android:layout_width="match_parent"
         android:layout_below="@+id/joueur1"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:text="jour 2"
         android:background="@drawable/button_round2"
@@ -92,10 +102,10 @@
         android:id="@+id/joueur3"
         android:layout_width="match_parent"
         android:layout_below="@+id/partieTermine"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
         android:text="jour 3"
         android:background="@drawable/button_round2"
         android:textStyle="bold" />
 
-</RelativeLayout>
+    </RelativeLayout>

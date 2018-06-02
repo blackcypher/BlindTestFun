@@ -27,10 +27,10 @@
             <Button
                 android:id="@+id/actionRapide"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="35dp"
                 android:layout_gravity="center"
-                android:text="@string/prompt_invite"
                 android:background="@drawable/button_round"
+                android:text="@string/prompt_invite"
                 android:textStyle="bold" />
 
 
@@ -39,14 +39,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="30dp" />
 
 
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/sign_in_button"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="35dp"
                 android:layout_gravity="center" />
 
             <TextView

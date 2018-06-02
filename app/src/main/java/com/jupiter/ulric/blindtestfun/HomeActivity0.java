@@ -1,6 +1,7 @@
 package com.jupiter.ulric.blindtestfun;
 
 
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.jupiter.ulric.blindtestfun.model.Users;
@@ -21,6 +23,8 @@ import org.springframework.web.client.RestTemplate;
 
 public class HomeActivity0 extends AppCompatActivity {
 
+    private ProgressBar spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,14 +33,19 @@ public class HomeActivity0 extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        spinner = (ProgressBar)findViewById(R.id.progressBar1);
+        spinner.setVisibility(View.GONE);
 
-        /*Button fab = (Button) findViewById(R.id.actionRandom);
+        Button fab = (Button) findViewById(R.id.actionRandom);
+
+        /*Typeface font = Typeface.createFromAsset(getAssets(), "Helv Neue 67 Med Cond.ttf");
+        fab.setTypeface(font);*/
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new HttpRequestTask().execute();
+                spinner.setVisibility(View.VISIBLE);
             }
-        });*/
+        });
     }
 
     /**
