@@ -1,6 +1,7 @@
 package com.jupiter.ulric.blindtestfun;
 
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -45,6 +46,8 @@ public class HomeActivity0 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 spinner.setVisibility(View.VISIBLE);
+                Intent i = new Intent(HomeActivity0.this, RandomPlayActivity.class);
+                startActivity(i);
             }
         });
     }
