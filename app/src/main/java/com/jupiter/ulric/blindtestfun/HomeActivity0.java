@@ -11,11 +11,13 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jupiter.ulric.blindtestfun.model.Users;
 
@@ -32,8 +34,9 @@ public class HomeActivity0 extends AppCompatActivity {
         setContentView(R.layout.activity_home0);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("       Fun Blind Test");
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
 
         spinner = (ProgressBar)findViewById(R.id.progressBar1);
         spinner.setVisibility(View.GONE);
@@ -101,6 +104,23 @@ public class HomeActivity0 extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        Toast toast = Toast.makeText(getApplicationContext(), "msg == "+id, Toast.LENGTH_SHORT);
+        toast.show();
+        if (id == R.id.miProfile) {
+            //Menu item pressed
+            Intent i = new Intent(HomeActivity0.this, RandomPlayActivity.class);
+            startActivity(i);
+            return true; //Indicated menu press was handled
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
 

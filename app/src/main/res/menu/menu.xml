@@ -1,15 +1,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.jupiter.ulric.blindtestfun.HomeActivity0">
     <item
         android:id="@+id/miCompose"
         android:icon="@drawable/ic_compose"
+        android:orderInCategory="100"
         app:showAsAction="ifRoom"
         android:title="Compose">
     </item>
     <item
         android:id="@+id/miProfile"
         android:icon="@drawable/ic_profile"
-        app:showAsAction="ifRoom|withText"
+        android:orderInCategory="200"
+        app:showAsAction="ifRoom"
         android:title="Profile">
     </item>
 </menu>
