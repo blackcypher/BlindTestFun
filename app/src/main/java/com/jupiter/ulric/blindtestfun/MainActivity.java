@@ -3,13 +3,14 @@ package com.jupiter.ulric.blindtestfun;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.facebook.CallbackManager;
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements
 
     private GoogleSignInClient mGoogleSignInClient;
 
+    private ProgressBar spinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,9 @@ public class MainActivity extends AppCompatActivity implements
         setContentView(R.layout.activity_main);
 
         users = new Users();
+
+        spinner = (ProgressBar)findViewById(R.id.progressBar);
+        spinner.setVisibility(View.GONE);
 
         mPartieRapide = (Button) findViewById(R.id.actionRapide);
         mPartieRapide.setOnClickListener(this);
@@ -80,7 +86,6 @@ public class MainActivity extends AppCompatActivity implements
                                     // handle error
                                 } else {
                                     String user_email =response.getJSONObject().optString("email");
-
                                     users.setEmail(user_email);
                                     new HttpRequestTask().execute();
                                 }
@@ -108,13 +113,10 @@ public class MainActivity extends AppCompatActivity implements
 
         SignInButton signInButton = findViewById(R.id.sign_in_button);
         signInButton.setOnClickListener(this);
-
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
-
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
         signInButton.setSize(SignInButton.SIZE_STANDARD);
         signInButton.setColorScheme(SignInButton.COLOR_LIGHT);
     }
@@ -124,13 +126,9 @@ public class MainActivity extends AppCompatActivity implements
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
             if (account != null) {
-                String personName = account.getDisplayName();
+                //String personName = account.getDisplayName();
                 String personEmail = account.getEmail();
-                String result = "email = "+personEmail+", "+personName;
-
                 users.setEmail(personEmail);
-                Toast toast = Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT);
-                toast.show();
             }
         } catch (ApiException e) {
             Toast toast = Toast.makeText(getApplicationContext(), "Connexion failed", Toast.LENGTH_SHORT);
@@ -150,30 +148,29 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-    }
-
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
+        new HttpRequestTask().execute();
     }
 
     private class HttpRequestTask extends AsyncTask<Void, Void, Users> {
         @Override
         protected Users doInBackground(Void... params) {
             try {
-                //final String url = "http://rest-service.guides.spring.io/greeting";
                 final String url = "http://89.86.60.41/api/v1/users";
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-                //Users users = restTemplate.getForObject(url, Users.class);
+
                 Users usersResult = restTemplate.postForObject(url, users, Users.class);
+                if(usersResult.getEmail()!=null){
+                    Intent i = new Intent(MainActivity.this, HomeActivity0.class);
+                    startActivity(i);
+                }
+
                 return usersResult;
             } catch (Exception e) {
-                Log.e("HomeActivity", e.getMessage(), e);
+                Log.e("HomeActivity0", e.getMessage(), e);
             }
 
             return null;
@@ -181,10 +178,6 @@ public class MainActivity extends AppCompatActivity implements
 
         @Override
         protected void onPostExecute(Users users) {
-            /*TextView greetingIdText = (TextView) findViewById(R.id.id_value);
-            TextView greetingContentText = (TextView) findViewById(R.id.content_value);
-            greetingIdText.setText(users.getId());
-            greetingContentText.setText(users.getEmailAddress());*/
         }
 
     }
@@ -194,18 +187,17 @@ public class MainActivity extends AppCompatActivity implements
         switch (v.getId()) {
             case R.id.sign_in_button:
                 signIn();
-                new HttpRequestTask().execute();
                 break;
             case R.id.actionRapide:
-                Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                spinner.setVisibility(View.VISIBLE);
+                Intent i = new Intent(MainActivity.this, HomeActivity0.class);
                 startActivity(i);
                 break;
             case R.id.email_sign_in_button:
-                /*Intent in = new Intent(MainActivity.this, HomeActivity.class);
-                startActivity(in);*/
                 tEmail = (EditText) findViewById(R.id.emailEdit);
                 if(tEmail!=null){
                     users.setEmail(tEmail.getText().toString());
+                    spinner.setVisibility(View.VISIBLE);
                     new HttpRequestTask().execute();
                 }
                 break;
