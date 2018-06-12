@@ -11,14 +11,6 @@
     android:background="@drawable/home"
     tools:context="com.jupiter.ulric.blindtestfun.MainActivity">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleLarge"
-        android:progressDrawable="@drawable/circular_progress_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" />
-
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
@@ -37,8 +29,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:background="@drawable/button_round"
                 android:text="@string/prompt_invite"
+                android:background="@drawable/button_round"
                 android:textStyle="bold" />
 
 
@@ -47,24 +39,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp" />
 
 
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/sign_in_button"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center" />
 
-            <TextView
-                android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:hint="@string/prompt_email"
-                android:textStyle="bold"
-                android:textColorHint="#2062b3" />
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="@string/prompt_email"
+                    android:textColorHint="#2062b3" />
 
             <EditText
                 android:id="@+id/emailEdit"

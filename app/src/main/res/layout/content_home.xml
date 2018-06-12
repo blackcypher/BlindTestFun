@@ -5,40 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.jupiter.ulric.blindtestfun.HomeActivity0"
-    tools:showIn="@layout/activity_home0">
+    tools:context="com.jupiter.ulric.blindtestfun.HomeActivity"
+    tools:showIn="@layout/activity_home">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center">
 
         <Button
             android:id="@+id/actionRandom"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:background="@drawable/button_round"
             android:text="partie aleatoire"
+            android:background="@drawable/button_round"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/id_value"
+            android:text="@string/id_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="50dp"
             android:layout_toRightOf="@+id/id_label"
-            android:text="@string/id_value" />
+            android:layout_marginLeft="50dp" />
 
         <TextView
             android:id="@+id/content_value"
+            android:text="@string/content_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/id_value"
             android:layout_alignTop="@+id/content_label"
-            android:text="@string/content_value" />
+            android:layout_alignLeft="@+id/id_value" />
 
     </LinearLayout>
 
