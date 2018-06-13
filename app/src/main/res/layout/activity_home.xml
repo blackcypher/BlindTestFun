@@ -20,6 +20,15 @@
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             app:titleTextColor="@android:color/white">
+
+            <TextView
+                android:id="@+id/toolbarTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="260"
+                android:textStyle="bold"
+                android:gravity="end"
+                android:visibility="visible" />
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
@@ -38,7 +47,8 @@
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true">
 
         <LinearLayout
             android:id="@+id/email_login_form"

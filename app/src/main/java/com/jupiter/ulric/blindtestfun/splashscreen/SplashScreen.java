@@ -13,7 +13,7 @@ import com.jupiter.ulric.blindtestfun.MainActivity;
 
 public class SplashScreen extends Activity{
 
-    private static int SPLASH_TIME_OUT = 3000;
+    private static int SPLASH_TIME_OUT = 5000;
     private GameView gv;
 
     protected void onCreate(Bundle savedInstanceState) {

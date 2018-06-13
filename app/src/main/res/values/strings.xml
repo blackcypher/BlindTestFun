@@ -15,5 +15,6 @@
     <string name="parties_terminee">Parties terminées</string>
     <string name="action_championnat">Championnat</string>
     <string name="action_friend">invite un ami</string>
+    <string name="string_title_random_activity">choisir un theme</string>
     <string name="se_connecter">Se connecter</string>
 </resources>

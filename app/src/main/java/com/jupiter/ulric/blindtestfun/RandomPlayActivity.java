@@ -1,8 +1,10 @@
 package com.jupiter.ulric.blindtestfun;
 
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 public class RandomPlayActivity extends AppCompatActivity {
 
@@ -12,6 +14,7 @@ public class RandomPlayActivity extends AppCompatActivity {
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //toolbar.setTitle(" "+toolbarTitle);
         setSupportActionBar(toolbar);
 
         setContentView(R.layout.activity_random_play);
