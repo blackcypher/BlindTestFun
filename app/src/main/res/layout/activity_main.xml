@@ -38,7 +38,7 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:background="@drawable/button_round"
-                android:text="@string/prompt_invite"
+                android:text="@string/partie_rapide"
                 android:textStyle="bold" />
 
 
@@ -78,7 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="32dp"
                 android:layout_marginTop="2dp"
-                android:text="@string/action_sign_in"
+                android:text="@string/se_connecter"
                 android:background="@drawable/button_round2"
                 android:textStyle="bold" />
 

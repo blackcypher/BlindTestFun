@@ -2,36 +2,23 @@ package com.jupiter.ulric.blindtestfun;
 
 
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.jupiter.ulric.blindtestfun.model.Users;
-
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
-
-public class HomeActivity0 extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     private ProgressBar spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home0);
+        setContentView(R.layout.activity_home);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("       Fun Blind Test");
@@ -48,17 +35,17 @@ public class HomeActivity0 extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                spinner.setVisibility(View.VISIBLE);
-                Intent i = new Intent(HomeActivity0.this, RandomPlayActivity.class);
+                Intent i = new Intent(HomeActivity.this, RandomPlayActivity.class);
                 startActivity(i);
             }
         });
     }
 
+
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    /*public static class PlaceholderFragment extends Fragment {
 
         public PlaceholderFragment() {
         }
@@ -66,7 +53,7 @@ public class HomeActivity0 extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.content_home0, container, false);
+            View rootView = inflater.inflate(R.layout.content_home, container, false);
             return rootView;
         }
     }
@@ -83,7 +70,7 @@ public class HomeActivity0 extends AppCompatActivity {
                 Users users = restTemplate.getForObject(url, Users.class);
                 return users;
             } catch (Exception e) {
-                Log.e("HomeActivity0", e.getMessage(), e);
+                Log.e("HomeActivity", e.getMessage(), e);
             }
 
             return null;
@@ -97,9 +84,12 @@ public class HomeActivity0 extends AppCompatActivity {
             greetingContentText.setText(users.getEmail());
         }
 
+    }*/
+    private void startProfilActivity(){
+        Intent i = new Intent(HomeActivity.this, ProfilActivity.class);
+        startActivity(i);
     }
-
-    @Override
+  @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -108,16 +98,9 @@ public class HomeActivity0 extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        Toast toast = Toast.makeText(getApplicationContext(), "msg == "+id, Toast.LENGTH_SHORT);
-        toast.show();
-        if (id == R.id.miProfile) {
-            //Menu item pressed
-            Intent i = new Intent(HomeActivity0.this, RandomPlayActivity.class);
-            startActivity(i);
-            return true; //Indicated menu press was handled
+        if (item.getItemId() == R.id.miProfile) {
+            startProfilActivity();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

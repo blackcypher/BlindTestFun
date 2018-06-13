@@ -3,7 +3,6 @@ package com.jupiter.ulric.blindtestfun;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -164,13 +163,13 @@ public class MainActivity extends AppCompatActivity implements
 
                 Users usersResult = restTemplate.postForObject(url, users, Users.class);
                 if(usersResult.getEmail()!=null){
-                    Intent i = new Intent(MainActivity.this, HomeActivity0.class);
+                    Intent i = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(i);
                 }
 
                 return usersResult;
             } catch (Exception e) {
-                Log.e("HomeActivity0", e.getMessage(), e);
+                Log.e("HomeActivity", e.getMessage(), e);
             }
 
             return null;
@@ -190,8 +189,9 @@ public class MainActivity extends AppCompatActivity implements
                 break;
             case R.id.actionRapide:
                 spinner.setVisibility(View.VISIBLE);
-                Intent i = new Intent(MainActivity.this, HomeActivity0.class);
+                Intent i = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(i);
+                spinner.setVisibility(View.GONE);
                 break;
             case R.id.email_sign_in_button:
                 tEmail = (EditText) findViewById(R.id.emailEdit);
@@ -199,6 +199,7 @@ public class MainActivity extends AppCompatActivity implements
                     users.setEmail(tEmail.getText().toString());
                     spinner.setVisibility(View.VISIBLE);
                     new HttpRequestTask().execute();
+                    spinner.setVisibility(View.GONE);
                 }
                 break;
         }

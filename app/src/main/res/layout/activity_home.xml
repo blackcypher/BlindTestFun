@@ -6,19 +6,25 @@
     android:layout_height="match_parent"
     android:background="@drawable/blackground"
     android:gravity="top"
-    tools:context="com.jupiter.ulric.blindtestfun.HomeActivity0">
+    tools:context="com.jupiter.ulric.blindtestfun.HomeActivity">
 
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
             app:titleTextColor="@android:color/white">
         </android.support.v7.widget.Toolbar>
 
-        <!--<include layout="@layout/content_home0" />-->
+    </android.support.design.widget.AppBarLayout>
+
+        <!--<include layout="@layout/content_home" />-->
 
 
         <ProgressBar
@@ -51,7 +57,7 @@
                 android:layout_marginTop="74dp"
                 android:background="@drawable/button_square"
                 android:drawableLeft="@drawable/ic_play"
-                android:text="partie aleatoire"
+                android:text="@string/partie_aleatoire"
                 android:textColor="#f7f9fc"
                 android:textStyle="bold" />
 
@@ -67,7 +73,7 @@
                 android:background="@drawable/button_square_theme"
                 android:contextClickable="false"
                 android:drawableLeft="@drawable/ic_music"
-                android:text="choisir un thème"
+                android:text="@string/choisir_theme"
                 android:textColor="#f7f9fc"
                 android:textStyle="bold" />
 
@@ -77,7 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/action2"
                 android:layout_marginTop="10dp"
-                android:hint="Parties en cours"
+                android:hint="@string/parties_en_cours"
                 android:textColorHint="#2062b3"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -217,7 +223,7 @@
                 android:layout_height="22dp"
                 android:layout_below="@+id/joueur2"
                 android:layout_marginTop="10dp"
-                android:hint="Parties terminées"
+                android:hint="@string/parties_terminee"
                 android:textColorHint="#2062b3"
                 android:textSize="15sp"
                 android:textStyle="bold" />
