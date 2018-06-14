@@ -11,12 +11,11 @@ public class RandomPlayActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.activity_random_play);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //toolbar.setTitle(" "+toolbarTitle);
         setSupportActionBar(toolbar);
 
-        setContentView(R.layout.activity_random_play);
     }
 }
