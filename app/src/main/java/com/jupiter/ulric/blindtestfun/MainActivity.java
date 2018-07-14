@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity implements
 
                 return usersResult;
             } catch (Exception e) {
-                Log.e("HomeActivity", e.getMessage(), e);
+                Log.e("HomeActivity0", e.getMessage(), e);
             }
 
             return null;
@@ -191,7 +191,6 @@ public class MainActivity extends AppCompatActivity implements
                 spinner.setVisibility(View.VISIBLE);
                 Intent i = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(i);
-                spinner.setVisibility(View.GONE);
                 break;
             case R.id.email_sign_in_button:
                 tEmail = (EditText) findViewById(R.id.emailEdit);
@@ -199,7 +198,6 @@ public class MainActivity extends AppCompatActivity implements
                     users.setEmail(tEmail.getText().toString());
                     spinner.setVisibility(View.VISIBLE);
                     new HttpRequestTask().execute();
-                    spinner.setVisibility(View.GONE);
                 }
                 break;
         }

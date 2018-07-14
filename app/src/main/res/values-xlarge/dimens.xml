@@ -4,6 +4,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
-    <dimen name="width">100</dimen>
-    <dimen name="heigth">200</dimen>
+    <dimen name="width">300</dimen>
+    <dimen name="heigth">400</dimen>
 </resources>

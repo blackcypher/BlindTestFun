@@ -2,7 +2,7 @@
     <string name="app_name">Fun Blind Test</string>
     <!-- Strings related to login -->
     <string name="facebook_app_id">1598241613627046</string>
-    <string name="isTablet">false</string>
+    <string name="isTablet">true</string>
     <string name="fb_login_protocol_scheme">fb1598241613627046</string>
     <string name="id_label">The ID is</string>
     <string name="id_value">[id]</string>

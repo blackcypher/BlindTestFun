@@ -1,9 +1,13 @@
 package com.jupiter.ulric.blindtestfun.splashscreen;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.util.Log;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -17,12 +21,24 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     // déclaration de l'objet définissant la boucle principale de déplacement et de rendu
     private GameLoopThread gameLoopThread;
     private Balle balle;
+    private int width;
+    private int height;
 
     // création de la surface de dessin
+    @SuppressLint("ResourceType")
     public GameView(Context context) {
         super(context);
         getHolder().addCallback(this);
         gameLoopThread = new GameLoopThread(this);
+        String isTablet  = getResources().getString(R.string.isTablet);
+
+        if(isTablet.equals("true")){
+            this.width = 300;
+            this.height = 400;
+        }else{
+            this.width = 100;
+            this.height = 200;
+        }
 
         // création d'un objet "balle", dont on définira la largeur/hauteur
         // selon la largeur ou la hauteur de l'écran
@@ -35,7 +51,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         // on efface l'écran, en blanc
         canvas.drawColor(Color.RED);
-        canvas.drawBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.splashscreen),100,200,null);
+        canvas.drawBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.splashscreen),width,height,null);
 
         // on dessine la balle
         balle.draw(canvas);
