@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,13 +11,12 @@
     android:background="@drawable/home"
     tools:context="com.jupiter.ulric.blindtestfun.MainActivity">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleLarge"
-        android:progressDrawable="@drawable/circular_progress_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:id="@+id/lin_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"/>
+
 
     <ScrollView
         android:id="@+id/login_form"
@@ -87,4 +86,4 @@
 
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+</FrameLayout>

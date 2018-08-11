@@ -9,6 +9,7 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -27,6 +28,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
+import com.jupiter.ulric.blindtestfun.backgrounds.animatedBackground.DotsSurfaceView;
+import com.jupiter.ulric.blindtestfun.backgrounds.rotatingBackground.RotatingImageView;
 import com.jupiter.ulric.blindtestfun.model.Users;
 
 import org.json.JSONObject;
@@ -35,6 +38,8 @@ import org.springframework.web.client.RestTemplate;
 
 public class MainActivity extends AppCompatActivity implements
         View.OnClickListener {
+
+    private LinearLayout layout;
 
     private LoginButton fcbButton;
     private Button mPartieRapide;
@@ -61,8 +66,8 @@ public class MainActivity extends AppCompatActivity implements
 
         users = new Users();
 
-        spinner = (ProgressBar)findViewById(R.id.progressBar);
-        spinner.setVisibility(View.GONE);
+        layout = (LinearLayout) findViewById(R.id.lin_background);
+        layout.addView(new RotatingImageView(this));
 
         mPartieRapide = (Button) findViewById(R.id.actionRapide);
         mPartieRapide.setOnClickListener(this);
