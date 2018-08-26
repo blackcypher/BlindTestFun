@@ -30,7 +30,7 @@ public class StarAnimationView extends View {
     }
 
     private static final int BASE_SPEED_DP_PER_S = 200;
-    private static final int COUNT = 32;
+    private static int COUNT = 0;
     private static final int SEED = 1337;
 
     /** The minimum scale of a star */
@@ -42,7 +42,7 @@ public class StarAnimationView extends View {
     /** How much of the alpha that's based on randomness */
     private static final float ALPHA_RANDOM_PART = 0.5f;
 
-    private final Star[] mStars = new Star[COUNT];
+    private Star[] mStars;
     private final Random mRnd = new Random(SEED);
 
     private TimeAnimator mTimeAnimator;
@@ -52,26 +52,38 @@ public class StarAnimationView extends View {
     private float mBaseSize;
     private long mCurrentPlayTime;
 
+    private Context context;
+
     /** @see View#View(Context) */
     public StarAnimationView(Context context) {
         super(context);
+        this.context = context;
         init();
     }
 
     /** @see View#View(Context, AttributeSet) */
     public StarAnimationView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.context = context;
         init();
     }
 
     /** @see View#View(Context, AttributeSet, int) */
     public StarAnimationView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        this.context = context;
         init();
     }
 
     private void init() {
         //mDrawable = ContextCompat.getDrawable(getContext(), R.drawable.note);
+        if(context.getString(R.string.isTablet).equals("true")){
+            COUNT = 100;
+            mStars = new Star[COUNT];
+        } else{
+            COUNT = 32;
+            mStars = new Star[COUNT];
+        }
         mDrawable = ContextCompat.getDrawable(getContext(), R.mipmap.note);
         mBaseSize = Math.max(mDrawable.getIntrinsicWidth(), mDrawable.getIntrinsicHeight()) / 2f;
         mBaseSpeed = BASE_SPEED_DP_PER_S * getResources().getDisplayMetrics().density;

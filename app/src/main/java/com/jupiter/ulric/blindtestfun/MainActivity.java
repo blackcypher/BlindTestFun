@@ -58,9 +58,6 @@ public class MainActivity extends AppCompatActivity implements
 
     private GoogleSignInClient mGoogleSignInClient;
 
-    private ProgressBar spinner;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -198,7 +195,6 @@ public class MainActivity extends AppCompatActivity implements
                 signIn();
                 break;
             case R.id.actionRapide:
-                spinner.setVisibility(View.VISIBLE);
                 Intent i = new Intent(MainActivity.this, HomeActivity.class);
                 startActivity(i);
                 break;
@@ -206,7 +202,6 @@ public class MainActivity extends AppCompatActivity implements
                 tEmail = (EditText) findViewById(R.id.emailEdit);
                 if(tEmail!=null){
                     users.setEmail(tEmail.getText().toString());
-                    spinner.setVisibility(View.VISIBLE);
                     new HttpRequestTask().execute();
                 }
                 break;
