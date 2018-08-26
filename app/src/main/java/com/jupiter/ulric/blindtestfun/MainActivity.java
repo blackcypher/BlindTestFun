@@ -30,6 +30,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.jupiter.ulric.blindtestfun.backgrounds.animatedBackground.DotsSurfaceView;
 import com.jupiter.ulric.blindtestfun.backgrounds.rotatingBackground.RotatingImageView;
+import com.jupiter.ulric.blindtestfun.backgrounds.starAnimationView.StarAnimationView;
 import com.jupiter.ulric.blindtestfun.model.Users;
 
 import org.json.JSONObject;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements
         View.OnClickListener {
 
     private LinearLayout layout;
+    private LinearLayout layoutStar;
 
     private LoginButton fcbButton;
     private Button mPartieRapide;
@@ -68,6 +70,9 @@ public class MainActivity extends AppCompatActivity implements
 
         layout = (LinearLayout) findViewById(R.id.lin_background);
         layout.addView(new RotatingImageView(this));
+
+        layoutStar = (LinearLayout) findViewById(R.id.lin_star);
+        layoutStar.addView(new StarAnimationView(this));
 
         mPartieRapide = (Button) findViewById(R.id.actionRapide);
         mPartieRapide.setOnClickListener(this);
