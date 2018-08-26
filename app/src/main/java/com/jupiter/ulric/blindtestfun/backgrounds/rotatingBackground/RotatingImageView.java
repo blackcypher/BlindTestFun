@@ -51,7 +51,7 @@ public class RotatingImageView extends android.support.v7.widget.AppCompatImageV
 
 
     private void init() {
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ball);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.disc);
         setImageBitmap(bitmap);
     }
 
