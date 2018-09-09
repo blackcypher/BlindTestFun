@@ -29,7 +29,7 @@ public class StarAnimationView extends View {
         private float speed;
     }
 
-    private static final int BASE_SPEED_DP_PER_S = 200;
+    private static final int BASE_SPEED_DP_PER_S = 100;
     private static int COUNT = 0;
     private static final int SEED = 1337;
 
@@ -78,10 +78,10 @@ public class StarAnimationView extends View {
     private void init() {
         //mDrawable = ContextCompat.getDrawable(getContext(), R.drawable.note);
         if(context.getString(R.string.isTablet).equals("true")){
-            COUNT = 100;
+            COUNT = 30;
             mStars = new Star[COUNT];
         } else{
-            COUNT = 32;
+            COUNT = 10;
             mStars = new Star[COUNT];
         }
         mDrawable = ContextCompat.getDrawable(getContext(), R.mipmap.note);
