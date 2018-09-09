@@ -98,6 +98,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        System.out.println(" id === "+item.getItemId());
         if (item.getItemId() == R.id.miProfile) {
             startProfilActivity();
             return true;
