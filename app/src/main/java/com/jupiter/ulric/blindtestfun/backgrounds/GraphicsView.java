@@ -28,10 +28,10 @@ public class GraphicsView extends View {
     }
 
     private void createAnim(Canvas canvas) {
-        rotateAnim = new RotateAnimation(-5, 5, canvas.getWidth() / 2, canvas.getHeight() / 2);
+        rotateAnim = new RotateAnimation(-3, 5, canvas.getWidth() / 2, canvas.getHeight() / 2);
         rotateAnim.setRepeatMode(Animation.REVERSE);
         rotateAnim.setRepeatCount(Animation.INFINITE);
-        rotateAnim.setDuration(5000L);
+        rotateAnim.setDuration(500L);
         rotateAnim.setInterpolator(new AccelerateDecelerateInterpolator());
 
         startAnimation(rotateAnim);

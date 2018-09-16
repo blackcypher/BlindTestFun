@@ -7,62 +7,111 @@
     android:background="@drawable/blackground"
     tools:context="com.jupiter.ulric.blindtestfun.HomeActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="157dp"
-        android:background="?attr/colorPrimaryDark"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
-
-            <LinearLayout
-                android:id="@+id/lin_title"
-                android:layout_width="200dp"
-                android:layout_height="70dp"
-                android:orientation="horizontal" />
-
-            <ImageView
-                android:id="@+id/coins"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|right"
-                android:src="@drawable/coins" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="top|right"
-                android:gravity="center"
-                android:text="260"
-                android:textColor="@color/colorAccent" />
-
-        </android.support.v7.widget.Toolbar>
-
-
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/profile_image"
-            android:layout_width="58dp"
-            android:layout_height="53dp"
-            android:layout_gravity="bottom|center"
-            android:src="@drawable/profile"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="2dp" />
-
-        <TextView
-            android:id="@+id/toolbarTextView"
+        <LinearLayout
+            android:id="@+id/lin_star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="3dp"
-            android:gravity="center"
-            android:text="ulrich63"
-            android:textColor="@color/colorAccent" />
+            android:orientation="vertical" />
 
-    </android.support.design.widget.AppBarLayout>
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="172dp"
+            android:background="?attr/colorPrimaryDark"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+                <LinearLayout
+                    android:id="@+id/lin_title"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:orientation="horizontal" />
+
+
+                <ImageView
+                    android:id="@+id/statistics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:src="@drawable/statistics" />
+
+            </android.support.v7.widget.Toolbar>
+
+            <LinearLayout
+                android:id="@+id/lin_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_width="58dp"
+                    android:layout_height="53dp"
+                    android:src="@drawable/profile"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp" />
+
+                <TextView
+                    android:id="@+id/toolbarTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center"
+                    android:text="ulrich63"
+                    android:textColor="@color/colorAccent" />
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/lin_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/settings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:src="@drawable/settings" />
+
+                <LinearLayout
+                    android:id="@+id/lin_coins"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/coins"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/coins" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="260"
+                        android:textColor="@color/colorAccent" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+
+    </FrameLayout>
 
     <include
         layout="@layout/content_home"

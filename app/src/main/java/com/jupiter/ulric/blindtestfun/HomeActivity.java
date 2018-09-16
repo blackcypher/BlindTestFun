@@ -12,10 +12,12 @@ import android.widget.GridLayout;
 import android.widget.LinearLayout;
 
 import com.jupiter.ulric.blindtestfun.backgrounds.GraphicsView;
+import com.jupiter.ulric.blindtestfun.backgrounds.starAnimationView.StarAnimationView;
 
 public class HomeActivity extends AppCompatActivity {
 
     private LinearLayout lin_title;
+    private LinearLayout layoutStar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,9 @@ public class HomeActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
+
+        layoutStar = (LinearLayout) findViewById(R.id.lin_star);
+        layoutStar.addView(new StarAnimationView(this));
 
         lin_title = (LinearLayout)findViewById(R.id.lin_title);
         lin_title.addView(new GraphicsView(this));
