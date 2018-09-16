@@ -54,13 +54,13 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".RandomPlayActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ProfilActivity" />
+        <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".RandomPlayActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".ProfilActivity"></activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

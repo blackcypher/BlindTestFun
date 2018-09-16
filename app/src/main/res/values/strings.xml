@@ -18,4 +18,5 @@
     <string name="action_friend">invite un ami</string>
     <string name="string_title_random_activity">choisir un theme</string>
     <string name="se_connecter">Se connecter</string>
+    <string name="title_activity_home">HomeActivity</string>
 </resources>
