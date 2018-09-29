@@ -30,63 +30,6 @@
                 android:layout_height="wrap_content"
                 app:popupTheme="@style/AppTheme.PopupOverlay">
 
-                <LinearLayout
-                    android:id="@+id/lin_title"
-                    android:layout_width="200dp"
-                    android:layout_height="40dp"
-                    android:orientation="horizontal" />
-
-
-                <ImageView
-                    android:id="@+id/statistics"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:src="@drawable/statistics" />
-
-            </android.support.v7.widget.Toolbar>
-
-            <LinearLayout
-                android:id="@+id/lin_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/profile_image"
-                    android:layout_width="58dp"
-                    android:layout_height="53dp"
-                    android:src="@drawable/profile"
-                    app:civ_border_color="#FF000000"
-                    app:civ_border_width="2dp" />
-
-                <TextView
-                    android:id="@+id/login"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:textSize="10dp"
-                    android:gravity="center"
-                    android:text="ulrich63"
-                    android:textColor="#fafaf9" />
-
-            </LinearLayout>
-
-
-            <RelativeLayout
-                android:id="@+id/lin_settings"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/settings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:src="@drawable/settings" />
 
                 <LinearLayout
                     android:id="@+id/lin_coins"
@@ -99,6 +42,7 @@
                         android:id="@+id/coins"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
                         android:src="@drawable/coins" />
 
                     <TextView
@@ -108,7 +52,79 @@
                         android:textColor="@color/colorAccent" />
                 </LinearLayout>
 
-            </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/lin_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/settings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:src="@drawable/settings" />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.Toolbar>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/lin_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginLeft="50dp"
+                    android:orientation="vertical">
+
+                    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/profile_image"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/profile"
+                        app:civ_border_color="#FF000000"
+                        app:civ_border_width="2dp" />
+
+                    <TextView
+                        android:id="@+id/login"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="3dp"
+                        android:gravity="center"
+                        android:text="ulrich63"
+                        android:textColor="#fafaf9"
+                        android:textSize="10dp" />
+
+                </LinearLayout>
+
+                <Button
+                    android:layout_width="115dp"
+                    android:layout_height="21dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/shape_google"
+                    android:text="resultats"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/statistics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:src="@drawable/statistics" />
 
         </android.support.design.widget.AppBarLayout>
 
