@@ -56,7 +56,8 @@ public class GraphicsView extends View {
         Paint paint = new Paint();
         paint.setColor(Color.WHITE);
         Typeface chops = Typeface.createFromAsset(context.getAssets(), "titleStyle.ttf");
-        paint.setTypeface(chops);
+        Typeface bold = Typeface.create(chops, Typeface.BOLD);
+        paint.setTypeface(bold);
         paint.setTextSize(45);
         paint.setAntiAlias(true);
 
