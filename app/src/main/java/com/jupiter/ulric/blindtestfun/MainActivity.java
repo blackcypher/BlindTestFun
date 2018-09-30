@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements
     private Button mPartieRapide;
     private Button mSeConnecter;
 
+    private EditText emailEditText;
+
     private Users users;
 
     private EditText tEmail;
@@ -76,6 +78,14 @@ public class MainActivity extends AppCompatActivity implements
 
         mSeConnecter = (Button) findViewById(R.id.email_sign_in_button);
         mSeConnecter.setOnClickListener(this);
+
+        emailEditText = (EditText) findViewById(R.id.emailEdit);
+        emailEditText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                emailEditText.setFocusableInTouchMode(true);
+            }
+        });
 
         callbackManager = CallbackManager.Factory.create();
         fcbButton = (LoginButton) findViewById(R.id.login_button);

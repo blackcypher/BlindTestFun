@@ -19,4 +19,9 @@
     <string name="string_title_random_activity">choisir un theme</string>
     <string name="se_connecter">Se connecter</string>
     <string name="title_activity_home">HomeActivity</string>
+
+    <string name="title_current_play">Parties en cours</string>
+    <string name="title_finish_play">Parties Terminés</string>
+    <string name="nb_play">3 defis</string>
+    <string name="bt_play">JOUER</string>
 </resources>

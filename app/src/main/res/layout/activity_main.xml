@@ -75,6 +75,8 @@
                 android:id="@+id/emailEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:focusableInTouchMode="false"
+                android:textColor="#fffdfd"
                 android:inputType="textEmailAddress"/>
 
 
