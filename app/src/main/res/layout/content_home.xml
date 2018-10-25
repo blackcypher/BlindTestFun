@@ -54,6 +54,12 @@
 
             </RelativeLayout>
 
+            <com.baoyz.swipemenulistview.SwipeMenuListView
+                android:id="@+id/listView"
+                android:background="#333333"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -278,14 +284,12 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/cv_avatar6"
                     android:layout_marginLeft="20dp"
-                    android:text="Pascal"
+                    android:text="Toto"
                     android:textColor="#0d0d0d"
                     android:textSize="15dp"
                     android:textStyle="bold" />
 
             </RelativeLayout>
-
         </LinearLayout>
     </LinearLayout>
-
 </RelativeLayout>
