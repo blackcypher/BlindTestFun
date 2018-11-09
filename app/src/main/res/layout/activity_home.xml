@@ -3,24 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/blackground"
+    android:layout_height="wrap_content"
+    android:background="#fcf9f9"
     tools:context="com.jupiter.ulric.blindtestfun.HomeActivity">
 
     <LinearLayout
         android:id="@+id/lin_coins"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ScrollView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <include
                 layout="@layout/app_bar_main"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="match_parent" />
         </ScrollView>
 
     </LinearLayout>

@@ -3,6 +3,11 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/fragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build.gradle">
           <value>
             <set />
@@ -23,6 +28,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/jupiter/ulric/blindtestfun/swipeView/Player.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/jupiter/ulric/blindtestfun/swipeView/PlayersDataAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/jupiter/ulric/blindtestfun/swipeView/SwipeController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/jupiter/ulric/blindtestfun/swipeView/SwipeControllerActions.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml">
           <value>
             <set />
@@ -39,6 +64,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/item_list_app.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../SwipeMenuListView/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../SwipeMenuListView/demo/build.gradle">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../SwipeMenuListView/demo/gradle/wrapper/gradle-wrapper.properties">
           <value>
             <set />
           </value>
