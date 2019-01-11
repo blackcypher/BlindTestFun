@@ -24,4 +24,5 @@
     <string name="title_finish_play">Parties Terminés</string>
     <string name="nb_play">3 defis</string>
     <string name="bt_play">JOUER</string>
+    <string name="title_activity_test">TestActivity</string>
 </resources>

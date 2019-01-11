@@ -206,6 +206,7 @@ public class MainActivity extends AppCompatActivity implements
                 break;
             case R.id.actionRapide:
                 Intent i = new Intent(MainActivity.this, HomeActivity.class);
+                //Intent i = new Intent(MainActivity.this, TestActivity.class);
                 startActivity(i);
                 break;
             case R.id.email_sign_in_button:
