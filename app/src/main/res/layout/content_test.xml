@@ -1,27 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.baoyz.swipemenulistview.SwipeMenuListView
-        android:id="@+id/listView"
-        android:layout_alignParentTop="true"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="115dp"
+            android:layout_height="21dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/shape_google"
+            android:text="resultats"
+            android:textSize="10dp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clipToPadding="false"
+            android:overScrollMode="never" />
+
+        <Button
+            android:layout_width="115dp"
+            android:layout_height="21dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/shape_google"
+            android:text="resultats"
+            android:textSize="10dp" />
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/shape_google"
-        android:text="resultats"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clipToPadding="false" />
 
-    <com.baoyz.swipemenulistview.SwipeMenuListView
-        android:id="@+id/listView2"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
-</RelativeLayout>
+        <Button
+            android:layout_width="115dp"
+            android:layout_height="21dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/shape_google"
+            android:text="resultats"
+            android:textSize="10dp" />
+    </LinearLayout>
+</ScrollView>

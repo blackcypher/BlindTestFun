@@ -4,12 +4,16 @@ package com.jupiter.ulric.blindtestfun.model;
  * Created by ulric on 06/05/2018.
  */
 
-public class Users {
+public class Player {
 
     private String id;
     private String email;
 
-    public Users(){
+    public Player(){
+    }
+
+    public Player(String id){
+        this.id = id;
     }
 
     public String getId() {

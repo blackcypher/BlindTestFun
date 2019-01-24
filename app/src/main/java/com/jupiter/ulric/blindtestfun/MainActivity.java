@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.facebook.CallbackManager;
@@ -28,10 +27,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
-import com.jupiter.ulric.blindtestfun.backgrounds.animatedBackground.DotsSurfaceView;
 import com.jupiter.ulric.blindtestfun.backgrounds.rotatingBackground.RotatingImageView;
 import com.jupiter.ulric.blindtestfun.backgrounds.starAnimationView.StarAnimationView;
-import com.jupiter.ulric.blindtestfun.model.Users;
+import com.jupiter.ulric.blindtestfun.model.Player;
 
 import org.json.JSONObject;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -49,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements
 
     private EditText emailEditText;
 
-    private Users users;
+    private Player users;
 
     private EditText tEmail;
 
@@ -65,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        users = new Users();
+        users = new Player();
 
         layout = (LinearLayout) findViewById(R.id.lin_background);
         layout.addView(new RotatingImageView(this));
@@ -170,15 +168,15 @@ public class MainActivity extends AppCompatActivity implements
         new HttpRequestTask().execute();
     }
 
-    private class HttpRequestTask extends AsyncTask<Void, Void, Users> {
+    private class HttpRequestTask extends AsyncTask<Void, Void, Player> {
         @Override
-        protected Users doInBackground(Void... params) {
+        protected Player doInBackground(Void... params) {
             try {
                 final String url = "http://89.86.60.41/api/v1/users";
                 RestTemplate restTemplate = new RestTemplate();
                 restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
 
-                Users usersResult = restTemplate.postForObject(url, users, Users.class);
+                Player usersResult = restTemplate.postForObject(url, users, Player.class);
                 if(usersResult.getEmail()!=null){
                     Intent i = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(i);
@@ -193,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements
         }
 
         @Override
-        protected void onPostExecute(Users users) {
+        protected void onPostExecute(Player users) {
         }
 
     }

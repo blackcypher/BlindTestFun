@@ -33,6 +33,26 @@ import com.baoyz.swipemenulistview.SwipeMenuCreator;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 
+import android.app.Fragment;
+import android.graphics.Canvas;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.jupiter.ulric.blindtestfun.R;
+import com.jupiter.ulric.blindtestfun.model.Player;
+import com.jupiter.ulric.blindtestfun.swipe.SwipeController;
+import com.jupiter.ulric.blindtestfun.swipe.PlayersDataAdapter;
+import com.jupiter.ulric.blindtestfun.swipe.SwipeControllerActions;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,24 +61,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    //private LinearLayout lin_title;
-    //private RelativeLayout layout_disc;
-    //private FrameLayout frame_toolbar;
     public static Context context;
-    //public SwipeMenuListView listView;
-    //private List<ApplicationInfo> mAppList;
-    //private AppAdapter mAdapter;
-    //private List<String> mItems = new ArrayList<>();
-    //public static final int nbUsers = 3;
+    private PlayersDataAdapter mAdapter;
+    private SwipeController swipeController = null;
+    private int nbPlayers = 5;
 
-    private List<ApplicationInfo> mAppList;
-    private AppAdapter mAdapter;
-    private SwipeMenuListView mListView;
-    private SwipeMenuListView mListView2;
-
-    public static final int nbPlayers = 3;
-
-
+    private RecyclerView recyclerView;
+    private RecyclerView recyclerView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,215 +84,52 @@ public class HomeActivity extends AppCompatActivity {
         TextView loginTextview = (TextView) findViewById(R.id.login);
         //loginTextview.setTypeface(chops, Typeface.BOLD);
 
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerView2 = (RecyclerView) findViewById(R.id.recyclerView2);
 
-        mAppList = getPackageManager().getInstalledApplications(0);
+        setPlayersDataAdapter();
+        setupRecyclerView();
+    }
 
-        mListView = (SwipeMenuListView) findViewById(R.id.listView);
-        mListView2 = (SwipeMenuListView) findViewById(R.id.listView2);
+    private void setPlayersDataAdapter() {
+        List<Player> players = new ArrayList<>();
+        for(int i = 0; i<nbPlayers; i++){
+            players.add(new Player("player"+i));
+        }
+        mAdapter = new PlayersDataAdapter(players);
+    }
 
-        mAdapter = new AppAdapter();
-        mListView.setAdapter(mAdapter);
-        mListView2.setAdapter(mAdapter);
+    private void setupRecyclerView() {
 
-        // step 1. create a MenuCreator
-        SwipeMenuCreator creator = new SwipeMenuCreator() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView.setAdapter(mAdapter);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        recyclerView2.setAdapter(mAdapter);
 
+        swipeController = new SwipeController(new SwipeControllerActions() {
             @Override
-            public void create(SwipeMenu menu) {
-                // create "open" item
-                SwipeMenuItem openItem = new SwipeMenuItem(
-                        getApplicationContext());
-                // set item background
-                openItem.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9,
-                        0xCE)));
-                // set item width
-                openItem.setWidth(dp2px(90));
-                // set item title
-                openItem.setTitle("Open");
-                // set item title fontsize
-                openItem.setTitleSize(18);
-                // set item title font color
-                openItem.setTitleColor(Color.WHITE);
-                // add to menu
-                menu.addMenuItem(openItem);
-
-                // create "delete" item
-                SwipeMenuItem deleteItem = new SwipeMenuItem(
-                        getApplicationContext());
-                // set item background
-                deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
-                        0x3F, 0x25)));
-                // set item width
-                deleteItem.setWidth(dp2px(90));
-                // set a icon
-                deleteItem.setIcon(R.drawable.ic_delete);
-                // add to menu
-                menu.addMenuItem(deleteItem);
-            }
-        };
-        // set creator
-        mListView.setMenuCreator(creator);
-        mListView2.setMenuCreator(creator);
-
-        // step 2. listener item click event
-        mListView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
-                ApplicationInfo item = mAppList.get(position);
-                switch (index) {
-                    case 0:
-                        // open
-                        //open(item);
-                        break;
-                    case 1:
-                        // delete
-//					delete(item);
-                        mAppList.remove(position);
-                        mAdapter.notifyDataSetChanged();
-                        break;
-                }
-                return false;
+            public void onRightClicked(int position) {
+                mAdapter.players.remove(position);
+                mAdapter.notifyItemRemoved(position);
+                mAdapter.notifyItemRangeChanged(position, mAdapter.getItemCount());
             }
         });
 
-        // set SwipeListener
-        mListView.setOnSwipeListener(new SwipeMenuListView.OnSwipeListener() {
+        ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeController);
+        itemTouchhelper.attachToRecyclerView(recyclerView);
+        itemTouchhelper.attachToRecyclerView(recyclerView2);
 
+        recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
-            public void onSwipeStart(int position) {
-                // swipe start
-            }
-
-            @Override
-            public void onSwipeEnd(int position) {
-                // swipe end
+            public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+                swipeController.onDraw(c);
             }
         });
-
-        // set MenuStateChangeListener
-        mListView.setOnMenuStateChangeListener(new SwipeMenuListView.OnMenuStateChangeListener() {
+        recyclerView2.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
-            public void onMenuOpen(int position) {
-            }
-
-            @Override
-            public void onMenuClose(int position) {
+            public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+                swipeController.onDraw(c);
             }
         });
-
-        // other setting
-//		listView.setCloseInterpolator(new BounceInterpolator());
-
-        // test item long click
-        mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view,
-                                           int position, long id) {
-                Toast.makeText(getApplicationContext(), position + " long click", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-        });
-    }
-
-    private void delete(ApplicationInfo item) {
-        // delete app
-        try {
-            Intent intent = new Intent(Intent.ACTION_DELETE);
-            intent.setData(Uri.fromParts("package", item.packageName, null));
-            startActivity(intent);
-        } catch (Exception e) {
-        }
-    }
-
-
-    class AppAdapter extends BaseSwipListAdapter {
-
-        @Override
-        public int getCount() {
-            return mAppList.size();
-        }
-
-        @Override
-        public ApplicationInfo getItem(int position) {
-            return mAppList.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = View.inflate(getApplicationContext(),
-                        R.layout.item_list, null);
-                new AppAdapter.ViewHolder(convertView);
-            }
-            HomeActivity.AppAdapter.ViewHolder holder = (HomeActivity.AppAdapter.ViewHolder) convertView.getTag();
-            ApplicationInfo item = getItem(position);
-            holder.iv_icon.setImageDrawable(item.loadIcon(getPackageManager()));
-            holder.tv_name.setText(item.loadLabel(getPackageManager()));
-            holder.iv_icon.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(HomeActivity.this, "iv_icon_click", Toast.LENGTH_SHORT).show();
-                }
-            });
-            holder.tv_name.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(HomeActivity.this,"iv_icon_click",Toast.LENGTH_SHORT).show();
-                }
-            });
-            return convertView;
-        }
-
-        class ViewHolder {
-            ImageView iv_icon;
-            TextView tv_name;
-
-            public ViewHolder(View view) {
-                iv_icon = (ImageView) view.findViewById(R.id.iv_icon);
-                tv_name = (TextView) view.findViewById(R.id.tv_name);
-                view.setTag(this);
-            }
-        }
-
-        @Override
-        public boolean getSwipEnableByPosition(int position) {
-            if(position % 2 == 0){
-                return false;
-            }
-            return true;
-        }
-    }
-
-    private int dp2px(int dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
-                getResources().getDisplayMetrics());
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.action_left) {
-            mListView.setSwipeDirection(SwipeMenuListView.DIRECTION_LEFT);
-            return true;
-        }
-        if (id == R.id.action_right) {
-            mListView.setSwipeDirection(SwipeMenuListView.DIRECTION_RIGHT);
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

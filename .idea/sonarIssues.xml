@@ -3,6 +3,11 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/a.dummy">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="/fragment.java">
           <value>
             <set />
@@ -34,6 +39,41 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/jupiter/ulric/blindtestfun/backgrounds/rotatingBackground/RotatingImageView.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/jupiter/ulric/blindtestfun/fragments/CurrentPartFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/jupiter/ulric/blindtestfun/fragments/EndPartFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/jupiter/ulric/blindtestfun/model/Player.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/jupiter/ulric/blindtestfun/swipe/PlayersDataAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/jupiter/ulric/blindtestfun/swipe/SwipeController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/jupiter/ulric/blindtestfun/swipe/SwipeControllerActions.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/jupiter/ulric/blindtestfun/swipe/UsersDataAdapter.java">
           <value>
             <set />
           </value>
@@ -84,6 +124,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout/content_test.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/fragment_current_part.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout/fragment_end_part.xml">
           <value>
             <set />
           </value>
