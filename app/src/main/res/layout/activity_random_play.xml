@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/blackground"
-    tools:context="com.jupiter.ulric.blindtestfun.RandomPlayActivity">
+    tools:context="com.jupiter.ulric.blindtestfun.activities.RandomPlayActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"

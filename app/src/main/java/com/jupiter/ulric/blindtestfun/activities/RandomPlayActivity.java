@@ -1,10 +1,12 @@
-package com.jupiter.ulric.blindtestfun;
+package com.jupiter.ulric.blindtestfun.activities;
 
 import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
+
+import com.jupiter.ulric.blindtestfun.R;
 
 public class RandomPlayActivity extends AppCompatActivity {
 

@@ -4,10 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Display;
 
-import com.jupiter.ulric.blindtestfun.MainActivity;
-import com.jupiter.ulric.blindtestfun.R;
+import com.jupiter.ulric.blindtestfun.activities.MainActivity;
 
 /**
  * Created by ulric on 18/03/2018.

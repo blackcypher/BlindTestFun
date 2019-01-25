@@ -44,7 +44,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -54,17 +54,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RandomPlayActivity"
+            android:name=".activities.RandomPlayActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ProfilActivity" />
+        <activity android:name=".activities.ProfilActivity" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".activities.HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".TestActivity"
-            android:label="@string/title_activity_test"
-            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

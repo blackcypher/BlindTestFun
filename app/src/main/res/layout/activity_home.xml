@@ -4,29 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fcf9f9"
-    tools:context="com.jupiter.ulric.blindtestfun.HomeActivity">
+    android:orientation="vertical"
+    android:background="#fcf9f9">
 
-    <LinearLayout
-        android:id="@+id/lin_coins"
+    <include
+        layout="@layout/app_bar_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <include
-            layout="@layout/app_bar_main"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-                <include
-                    layout="@layout/content_test"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-        </ScrollView>
-
-    </LinearLayout>
-
+    <include
+        layout="@layout/content_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

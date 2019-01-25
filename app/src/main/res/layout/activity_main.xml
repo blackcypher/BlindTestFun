@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/home"
-    tools:context="com.jupiter.ulric.blindtestfun.MainActivity">
+    tools:context="com.jupiter.ulric.blindtestfun.activities.MainActivity">
 
     <LinearLayout
         android:id="@+id/lin_star"

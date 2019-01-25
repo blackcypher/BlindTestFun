@@ -1,4 +1,4 @@
-package com.jupiter.ulric.blindtestfun;
+package com.jupiter.ulric.blindtestfun.activities;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -27,6 +27,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
+import com.jupiter.ulric.blindtestfun.R;
 import com.jupiter.ulric.blindtestfun.backgrounds.rotatingBackground.RotatingImageView;
 import com.jupiter.ulric.blindtestfun.backgrounds.starAnimationView.StarAnimationView;
 import com.jupiter.ulric.blindtestfun.model.Player;
