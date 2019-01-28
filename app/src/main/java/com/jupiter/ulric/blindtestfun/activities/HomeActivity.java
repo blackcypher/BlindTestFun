@@ -26,15 +26,15 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
 
     public static Context context;
-    private PlayersDataAdapter mAdapter;
-    private PlayersDataAdapter mAdapter2;
+    private PlayersDataAdapter mAdapterCurrent;
+    private PlayersDataAdapter mAdapterEnded;
     private SwipeController swipeController = null;
     private SwipeController swipeController2 = null;
     private int nbPlayers = 5;
 
-    private RecyclerView recyclerView;
-    private RecyclerView recyclerView2;
-
+    private RecyclerView recyclerViewCurrent;
+    private RecyclerView recyclerViewEnded;
+                                                            
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,33 +48,32 @@ public class HomeActivity extends AppCompatActivity {
         paint.setColor(Color.WHITE);
         Typeface chops = Typeface.createFromAsset(getAssets(), "AgentOrange.ttf");
         TextView loginTextview = (TextView) findViewById(R.id.login);
-        //loginTextview.setTypeface(chops, Typeface.BOLD);
+        loginTextview.setTypeface(chops, Typeface.BOLD);
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-        recyclerView2 = (RecyclerView) findViewById(R.id.recyclerView2);
-        recyclerView.setNestedScrollingEnabled(false);
-        recyclerView2.setNestedScrollingEnabled(false);
-        setPlayersDataAdapter();
-        setupRecyclerView();
+        recyclerViewCurrent = (RecyclerView) findViewById(R.id.recyclerView);
+        recyclerViewEnded = (RecyclerView) findViewById(R.id.recyclerView2);
+        mAdapterCurrent = getPlayersDataAdapter(nbPlayers);
+        mAdapterEnded = getPlayersDataAdapter(nbPlayers+5);
+
+        setupRecyclerView(recyclerViewCurrent, mAdapterCurrent);
+        setupRecyclerView(recyclerViewEnded, mAdapterEnded);
     }
 
-    private void setPlayersDataAdapter() {
+    private PlayersDataAdapter getPlayersDataAdapter(int nbPlayers) {
         List<Player> players = new ArrayList<>();
         for(int i = 0; i<nbPlayers; i++){
             players.add(new Player("player"+i));
         }
-        mAdapter = new PlayersDataAdapter(players);
-        mAdapter2 = new PlayersDataAdapter(players);
+        PlayersDataAdapter adapter = new PlayersDataAdapter(players);
+        return adapter;
     }
 
-    private void setupRecyclerView() {
-
+    private void setupRecyclerView(RecyclerView recyclerView, final PlayersDataAdapter mAdapter) {
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(mAdapter);
-        recyclerView2.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        recyclerView2.setAdapter(mAdapter2);
 
-        swipeController = new SwipeController(new SwipeControllerActions() {
+        final SwipeController swipeController = new SwipeController(new SwipeControllerActions() {
             @Override
             public void onRightClicked(int position) {
                 mAdapter.players.remove(position);
@@ -83,30 +82,13 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        swipeController2 = new SwipeController(new SwipeControllerActions() {
-            @Override
-            public void onRightClicked(int position) {
-                mAdapter2.players.remove(position);
-                mAdapter2.notifyItemRemoved(position);
-                mAdapter2.notifyItemRangeChanged(position, mAdapter2.getItemCount());
-            }
-        });
-
         ItemTouchHelper itemTouchhelper = new ItemTouchHelper(swipeController);
-        ItemTouchHelper itemTouchhelper2 = new ItemTouchHelper(swipeController2);
         itemTouchhelper.attachToRecyclerView(recyclerView);
-        itemTouchhelper2.attachToRecyclerView(recyclerView2);
 
         recyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
             @Override
             public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
                 swipeController.onDraw(c);
-            }
-        });
-        recyclerView2.addItemDecoration(new RecyclerView.ItemDecoration() {
-            @Override
-            public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
-                swipeController2.onDraw(c);
             }
         });
     }

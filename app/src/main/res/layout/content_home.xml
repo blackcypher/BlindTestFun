@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -83,23 +83,6 @@
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:orientation="vertical"
-            android:overScrollMode="never"/>
-
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:background="#fffdfd"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/nb_play"
-                android:textColor="#f6f2f2"
-                android:textSize="15dp"
-                android:background="#e11313"
-                android:textStyle="bold" />
-        </RelativeLayout>
+            android:overScrollMode="never" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
